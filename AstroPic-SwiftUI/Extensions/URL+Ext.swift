@@ -1,12 +1,11 @@
 //
-//  NetworkHelper.swift
+//  URL+Ext.swift
 //  AstroPic-SwiftUI
 //
 //  Created by Gorkem on 17.07.2023.
 //
 
 import Foundation
-
 
 extension URL {
     func withQuery(_ query: [String: String]) -> URL? {

@@ -8,11 +8,17 @@
 import Foundation
 
 // MARK: - PhotoInfo
-struct PhotoInfo: Codable {
+struct PhotoInfo: Codable, Identifiable {
+    let id = UUID()
     var date, explanation: String?
     var hdurl: String?
     var mediaType, serviceVersion, title: String?
     var url: String?
+    
+    var formattedDate: Date {
+        let dateFormatter = NetworkHelper.createFormatter()
+        return dateFormatter.date(from: self.date ?? "") ?? Date()
+    }
 
     enum CodingKeys: String, CodingKey {
         case date, explanation, hdurl

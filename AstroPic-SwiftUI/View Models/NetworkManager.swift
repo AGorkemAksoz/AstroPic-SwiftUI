@@ -29,14 +29,9 @@ class NetworkManager: ObservableObject {
             }.store(in: &subscriptions)
         
         $date.removeDuplicates()
-            .map { self.createURL(for: $0)
+            .map { NetworkHelper.createURL(for: $0)
             }.flatMap { url in
-                URLSession.shared.dataTaskPublisher(for: url)
-                    .map(\.data)
-                    .decode(type: PhotoInfo.self, decoder: JSONDecoder())
-                    .catch { error in
-                        Just(PhotoInfo())
-                    }
+                NetworkHelper.createPublisher(url: url)
             }
             .receive(on: RunLoop.main)
             .assign(to: \.photoInfo, on: self)
@@ -89,15 +84,5 @@ class NetworkManager: ObservableObject {
 
     }
     
-    func createURL(for date: Date) -> URL {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        let dateString = formatter.string(from: date)
-        
-        let url = URL(string: Const.baseURL)!
-        
-        let fullURL = url.withQuery(["api_key" : Const.key, "date": dateString])!
-        
-        return fullURL
-    }
+
 }
