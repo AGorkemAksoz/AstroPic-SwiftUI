@@ -42,13 +42,13 @@ class MultiNetworkManager: ObservableObject {
             .assign(to: \.infos, on: self)
             .store(in: &subscriptions)
         
-        getMoreData()
+        getMoreData(for: 10)
     
     }
     
-    func getMoreData() {
-        for i in 1..<10 {
-            self.daysFromToday = i
+    func getMoreData(for times: Int) {
+        for i in 0..<times{
+            self.daysFromToday += 1
         }
     }
 }
