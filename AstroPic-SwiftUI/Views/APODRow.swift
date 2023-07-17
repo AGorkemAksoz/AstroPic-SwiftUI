@@ -16,6 +16,9 @@ struct APODRow: View {
             Text(photoInfo.date ?? "").bold()
             Text(photoInfo.title ?? "")
         }
+        .onAppear {
+            print(photoInfo.title)
+        }
     }
 }
 
