@@ -10,14 +10,35 @@ import SwiftUI
 struct PicOfTodayView: View {
     
     @ObservedObject var manager = NetworkManager()
+    @State private var showSwitchDate: Bool = false
+    
     
     var body: some View {
-        VStack{
+        VStack(alignment: .center, spacing: 20){
+            
+            HStack(alignment: .bottom) {
+                Spacer()
+                Button {
+                    showSwitchDate = true
+                } label: {
+                        Image(systemName: "calendar")
+                        Text("Switch Day")
+                }
+                .padding(.trailing)
+                .popover(isPresented: $showSwitchDate) {
+                    SelectDateView( manager: manager)
+
+                }
+            }
+            
+
             
             if manager.image != nil {
                 Image(uiImage: self.manager.image!)
                     .resizable()
                     .scaledToFit()
+            } else {
+                ProgressView()
             }
             
             ScrollView {
