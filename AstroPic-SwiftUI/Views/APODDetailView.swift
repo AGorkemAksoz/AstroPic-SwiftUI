@@ -9,23 +9,26 @@ import SwiftUI
 
 struct APODDetailView: View {
     
-    init(photoInfo: PhotoInfo) {
+    init(photoInfo: PhotoInfo, manager: MultiNetworkManager) {
         print("init detail for \(photoInfo.date)")
         self.photoInfo = photoInfo
+        self.manager = manager
     }
     
     let photoInfo: PhotoInfo
     
+    @ObservedObject var manager: MultiNetworkManager
+    
     var body: some View {
         VStack {
-            //            if manager.image != nil {
-            //                Image(uiImage: self.manager.image!)
-            //                    .resizable()
-            //                    .scaledToFit()
-            //            } else {
-            //                ProgressView()
-            //            }
-            //
+            if photoInfo.image != nil {
+                    Image(uiImage: self.photoInfo.image!)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    ProgressView()
+                }
+    
             ScrollView {
                 VStack(alignment: .leading) {
                     Text(photoInfo.date ?? "")
@@ -37,11 +40,18 @@ struct APODDetailView: View {
             }
             .padding()
         }
+        .navigationTitle(photoInfo.title ?? "")
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            self.manager.fetchImage(for: self.photoInfo)
+        }
     }
 }
 
 struct APODDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        APODDetailView(photoInfo: PhotoInfo.createDefault())
+        NavigationView {
+            APODDetailView(photoInfo: PhotoInfo.createDefault(), manager: MultiNetworkManager())
+        }
     }
 }

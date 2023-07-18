@@ -67,20 +67,6 @@ class NetworkManager: ObservableObject {
             .receive(on: RunLoop.main)
             .assign(to: \.image, on: self)
             .store(in: &subscriptions)
-        
-        
-//            .sink { completion in
-//                switch completion {
-//                case .finished:
-//                    print("fetch complete finished")
-//                case .failure(let failure):
-//                    print("fetch complete wit failure: \(failure.localizedDescription)")
-//                }
-//            } receiveValue: { data, response in
-//                if let description = String(data: data, encoding: .utf8) {
-//                    print(description)
-//                }
-//            }.store(in: &subscriptions)
 
     }
     

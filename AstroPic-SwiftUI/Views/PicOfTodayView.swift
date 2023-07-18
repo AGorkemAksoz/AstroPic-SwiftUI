@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+
+/// This view for firt version of this app
+
 struct PicOfTodayView: View {
     
     @ObservedObject var manager = NetworkManager()

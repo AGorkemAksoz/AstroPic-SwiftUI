@@ -7,12 +7,12 @@
 
 import Combine
 import Foundation
+import SwiftUI
 
 
 class MultiNetworkManager: ObservableObject {
     
     @Published var infos = [PhotoInfo]()
-    
     @Published var daysFromToday: Int = 0
     
     private var subscriptions = Set<AnyCancellable>()
@@ -50,5 +50,27 @@ class MultiNetworkManager: ObservableObject {
         for i in 0..<times{
             self.daysFromToday += 1
         }
+    }
+    
+    func fetchImage(for photoInfo: PhotoInfo) {
+        // fetch image from photoInfo.url
+        // set image to photoInfo.image
+        
+        guard photoInfo.image == nil, let url = photoInfo.url else {
+            return
+        }
+        
+        let request = URLRequest(url: URL(string: url)!)
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Fetch image error: \(error.localizedDescription)")
+            } else if let data = data, let image = UIImage(data: data), let index = self.infos.firstIndex(where: { $0.id == photoInfo.id}) {
+                DispatchQueue.main.async {
+                    self.infos[index].image = image
+                }
+            }
+        }
+        task.resume()
     }
 }

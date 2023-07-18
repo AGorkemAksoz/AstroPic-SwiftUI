@@ -14,23 +14,20 @@ struct APODListView: View {
         NavigationView {
             List {
                 ForEach(manager.infos, id: \.id) { info in
-                    APODRow(photoInfo: info)
-                        .onAppear {
-                            // Pagination
-                            
-                            print(info)
-                            if let index = self.manager.infos.firstIndex(where: { $0.id == info.id}),
-                               index == self.manager.infos.count - 1 && self.manager.daysFromToday == self.manager.infos.count - 1 {
-                                self.manager.getMoreData(for: 10)
+                    NavigationLink {
+                        APODDetailView(photoInfo: info, manager: manager)
+                    } label: {
+                        APODRow(photoInfo: info)
+                            .onAppear {
+                                // Pagination
+                                
+                                print(info)
+                                if let index = self.manager.infos.firstIndex(where: { $0.id == info.id}),
+                                   index == self.manager.infos.count - 1 && self.manager.daysFromToday == self.manager.infos.count - 1 {
+                                    self.manager.getMoreData(for: 10)
+                                }
                             }
-                        }
-                    
-//                    NavigationLink {
-//                        APODDetailView(photoInfo: info)
-//                    } label: {
-//
-//                    }
-
+                    }
                 }
                 
                 ForEach(0..<10) { _ in
