@@ -13,6 +13,9 @@
 		DE2FA9E72A65786000AA8CC2 /* APODListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA9E62A65786000AA8CC2 /* APODListView.swift */; };
 		DE2FA9EB2A657A7A00AA8CC2 /* APODRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA9EA2A657A7A00AA8CC2 /* APODRow.swift */; };
 		DE2FA9ED2A65837800AA8CC2 /* APODDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA9EC2A65837800AA8CC2 /* APODDetailView.swift */; };
+		DE2FA9EF2A667B7100AA8CC2 /* InteractiveImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA9EE2A667B7100AA8CC2 /* InteractiveImageView.swift */; };
+		DE2FA9F12A667C9600AA8CC2 /* CGPoint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA9F02A667C9600AA8CC2 /* CGPoint+Ext.swift */; };
+		DE2FA9F32A667CA900AA8CC2 /* CGSize+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA9F22A667CA900AA8CC2 /* CGSize+Ext.swift */; };
 		DEE798682A652887009F817B /* AstroPic_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE798672A652887009F817B /* AstroPic_SwiftUIApp.swift */; };
 		DEE7986A2A652887009F817B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE798692A652887009F817B /* ContentView.swift */; };
 		DEE7986C2A652889009F817B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEE7986B2A652889009F817B /* Assets.xcassets */; };
@@ -31,6 +34,9 @@
 		DE2FA9E62A65786000AA8CC2 /* APODListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODListView.swift; sourceTree = "<group>"; };
 		DE2FA9EA2A657A7A00AA8CC2 /* APODRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODRow.swift; sourceTree = "<group>"; };
 		DE2FA9EC2A65837800AA8CC2 /* APODDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDetailView.swift; sourceTree = "<group>"; };
+		DE2FA9EE2A667B7100AA8CC2 /* InteractiveImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveImageView.swift; sourceTree = "<group>"; };
+		DE2FA9F02A667C9600AA8CC2 /* CGPoint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Ext.swift"; sourceTree = "<group>"; };
+		DE2FA9F22A667CA900AA8CC2 /* CGSize+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Ext.swift"; sourceTree = "<group>"; };
 		DEE798642A652887009F817B /* AstroPic-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AstroPic-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE798672A652887009F817B /* AstroPic_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroPic_SwiftUIApp.swift; sourceTree = "<group>"; };
 		DEE798692A652887009F817B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				DE2FA9E32A6572D600AA8CC2 /* URL+Ext.swift */,
+				DE2FA9F02A667C9600AA8CC2 /* CGPoint+Ext.swift */,
+				DE2FA9F22A667CA900AA8CC2 /* CGSize+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,6 +135,7 @@
 				DE2FA9E62A65786000AA8CC2 /* APODListView.swift */,
 				DE2FA9EA2A657A7A00AA8CC2 /* APODRow.swift */,
 				DE2FA9EC2A65837800AA8CC2 /* APODDetailView.swift */,
+				DE2FA9EE2A667B7100AA8CC2 /* InteractiveImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,8 +220,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE2FA9DF2A656A6A00AA8CC2 /* SelectDateView.swift in Sources */,
+				DE2FA9F12A667C9600AA8CC2 /* CGPoint+Ext.swift in Sources */,
 				DEE798812A652FCF009F817B /* PhotoInfo.swift in Sources */,
 				DEE798792A6528CF009F817B /* NetworkManager.swift in Sources */,
+				DE2FA9EF2A667B7100AA8CC2 /* InteractiveImageView.swift in Sources */,
 				DEE7987B2A652C36009F817B /* Const.swift in Sources */,
 				DEE7987F2A652F1B009F817B /* PicOfTodayView.swift in Sources */,
 				DE2FA9E12A65728600AA8CC2 /* MultiNetworkManager.swift in Sources */,
@@ -220,6 +231,7 @@
 				DE2FA9E42A6572D600AA8CC2 /* URL+Ext.swift in Sources */,
 				DE2FA9ED2A65837800AA8CC2 /* APODDetailView.swift in Sources */,
 				DE2FA9EB2A657A7A00AA8CC2 /* APODRow.swift in Sources */,
+				DE2FA9F32A667CA900AA8CC2 /* CGSize+Ext.swift in Sources */,
 				DEE7986A2A652887009F817B /* ContentView.swift in Sources */,
 				DEE798682A652887009F817B /* AstroPic_SwiftUIApp.swift in Sources */,
 				DE2FA9E72A65786000AA8CC2 /* APODListView.swift in Sources */,

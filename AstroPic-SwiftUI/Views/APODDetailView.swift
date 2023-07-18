@@ -22,9 +22,18 @@ struct APODDetailView: View {
     var body: some View {
         VStack {
             if photoInfo.image != nil {
-                    Image(uiImage: self.photoInfo.image!)
-                        .resizable()
-                        .scaledToFit()
+                Image(uiImage: self.photoInfo.image!)
+                    .resizable()
+                    .scaledToFit()
+                    .overlay(alignment: .bottomTrailing) {
+                        NavigationLink {
+                            InteractiveImageView(image: photoInfo.image!)
+                        } label: {
+                            Image(systemName: "magnifyingglass.circle.fill")
+                                .font(.title)
+                                .padding()
+                        }
+                    }
                 } else {
                     ProgressView()
                 }
